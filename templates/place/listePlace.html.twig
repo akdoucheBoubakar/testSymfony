@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlaceController!{% endblock %}
+
+{% block body %}
+            <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>adresse</td>
+                <td>codePostal</td>
+                <td>City</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for Place in place %}
+                <tr>
+                    <td>{{ Place.id }}</td>
+                    <td>{{ Place.name}}</td>
+                    <td>{{Place.address}}</td>
+                    <td>{{Place.zipCode}}</td>
+                    <td>{{Place.City}}</td>
+                    <td>
+
+                    </td>
+                </tr>
+
+    {% endfor %}
+    <button ><a href="/generateCsv" > amporter places</a> </button>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>IdUser</td>
+            <td>IdCustomer</td>
+            <td>IdPlace</td>
+            <td>date  </td>
+            <td>action </td>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for Appointment in Appointments %}
+            <tr>
+                <td>{{ Appointment.id }}</td>
+                <td> {{ Appointment.idUser.id }}</td>
+                <td>{{ Appointment.idCustomer.id }},
+                           {{  Appointment.idCustomer.firstName  }},
+                           {{  Appointment.idCustomer.lastName  }}</td>
+                <td>{{ Appointment.idPlace.id }},
+                            {{ Appointment.idPlace.name }},
+                            {{ Appointment.idPlace.address }},
+                            {{ Appointment.idPlace.zipCode }},
+                            {{ Appointment.idPlace.city}}</td>
+                <td>{{ Appointment.Date|date('Y-m-d')}}</td>
+                <td>
+                    <a href="{{ path('modifier_appointment', {id: Appointment.id}) }}">Modifier</a><br>
+                    <a href="{{ path('supprimer_appointment', {id: Appointment.id}) }}">Supprimer</a><br>
+                    <a href="{{ path('ajouter_appointment')}}">ajouter Appointement</a><br>
+                </td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+{% endblock %}

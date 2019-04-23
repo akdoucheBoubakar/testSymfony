@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hello CustomerController!{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+         {% block body %}
+          ajouter appointment
+         {{ form(form) }}
+
+{% endblock %}

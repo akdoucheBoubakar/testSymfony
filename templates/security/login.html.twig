@@ -1,0 +1,17 @@
+
+{% block body %}
+    <h3>  authontification </h3>
+       <form action ="{{ path('formulaire_login') }}" method="post">
+           <div class="form_group">
+               <input  placeholder="votre nom...."  required name="_username" type="text" class ="form_control">
+           </div>
+           <div class="form_group">
+                    <input  placeholder="votre mot de passe...."  required name="_password" type="text" class ="form_control">
+           </div>
+           <div class="form_group">
+            <button type="submit" class="btn btn-success">Connection</button>
+           </div>
+
+
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %} <h1>AFFICHER la liste Client</h1> {% endblock %}
+
+{% block body %}
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>nom</td>
+            <td>Prenom</td>
+            <td>date de naissance</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for Customer in Customers %}
+            <tr>
+                <td>{{ Customer.id }}</td>
+                <td>{{ Customer.firstName  }}</td>
+                <td>{{ Customer.lastName }}</td>
+                <td>{{ Customer.birthDate|date('Y-m-d')}}</td>
+                <td>
+                    <a href="{{ path('modifier_customer', {id: Customer.id}) }}">Modifier</a><br>
+                    <a href="{{ path('supprimer_customer', {id: Customer.id }) }}">Supprimer</a><br>
+                    <a href="{{ path('ajouter_customer')}}">ajouter Customer</a><br>
+                </td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+{% endblock %}
